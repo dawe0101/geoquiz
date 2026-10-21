@@ -38,7 +38,7 @@ const cities=[
 {name:"Gävle",lat:60.6749,lon:17.1413},{name:"Borås",lat:57.721,lon:12.9401},{name:"Sundsvall",lat:62.3908,lon:17.3069}
 ];
 const map=L.map('map',{scrollWheelZoom:true}).setView([61.1,16.3],4.7);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:20,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}).addTo(map);
 let round=[],index=0,score=0,hits=0,guess=null,guessMarker=null,answerMarker=null,line=null,answered=false;
 const $=id=>document.getElementById(id);
 const distance=(a,b)=>{const R=6371,rad=n=>n*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),x=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(x));};
